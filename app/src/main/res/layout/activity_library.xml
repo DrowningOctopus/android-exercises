@@ -1,9 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding = "10dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".LibraryActivity">
 
-</RelativeLayout>
+
+    <TextView
+        android:id="@+id/el1"
+        android:layout_width = "wrap_content"
+        android:layout_height = "wrap_content"
+        android:background = "@color/red"
+        android:padding = "5dp"
+        android:text = "@string/left_text"/>
+
+    <TextView
+        android:id="@+id/el2"
+        android:layout_width = "wrap_content"
+        android:layout_height = "wrap_content"
+        android:background = "@color/purple"
+        android:padding = "5dp"
+        android:text = "@string/below_left_text"
+        app:layout_constraintTop_toBottomOf="@+id/el1"/>
+
+    <TextView
+        android:id="@+id/el3"
+        android:layout_width = "wrap_content"
+        android:layout_height = "wrap_content"
+        android:background = "@color/colorAccent"
+        android:padding = "5dp"
+        android:text = "@string/right_text"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <TextView
+        android:id="@+id/el4"
+        android:layout_width = "wrap_content"
+        android:layout_height = "wrap_content"
+        android:background = "@color/deep_purple"
+        android:padding = "5dp"
+        android:text = "@string/center_text"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <TextView
+        android:id="@+id/el5"
+        android:layout_width = "wrap_content"
+        android:layout_height = "wrap_content"
+        android:background = "@color/colorPrimaryDark"
+        android:padding = "5dp"
+        android:text = "@string/bottom_center_text"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <TextView
+        android:id="@+id/el6"
+        android:layout_width = "wrap_content"
+        android:layout_height = "wrap_content"
+        android:background = "@color/colorPrimary"
+        android:padding = "5dp"
+        android:text = "@string/above_bottom_center_text"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/el5"/>
+
+</android.support.constraint.ConstraintLayout>
