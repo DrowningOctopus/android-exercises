@@ -1,5 +1,7 @@
 package fr.android.androidexercises;
 
+import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +9,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.DatePicker;
+import android.widget.TimePicker;
+import android.widget.Toast;
 
 public class LibraryActivity extends AppCompatActivity {
 
@@ -22,10 +27,21 @@ public class LibraryActivity extends AppCompatActivity {
         Book book = new Book("Garry Whopper", "CK Rowling");
 
         openButton.setOnClickListener(v -> {
-            Intent intent = new Intent(LibraryActivity.this, BookActivity.class);
+            //Intent intent = new Intent(LibraryActivity.this, BookActivity.class);
             // TODO add parcel book to intent
-            intent.putExtra(BookActivity.BOOK, book);
-            startActivity(intent);
+            //intent.putExtra(BookActivity.BOOK, book);
+            //startActivity(intent);
+            new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+                @Override
+                public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
+                    new TimePickerDialog(LibraryActivity.this, new TimePickerDialog.OnTimeSetListener() {
+                        @Override
+                        public void onTimeSet(TimePicker timePicker, int t, int t1) {
+                            Toast.makeText(LibraryActivity.this, i2 + "/" + (i1+1) + "/" + i + " à " + t + "h" + t1, Toast.LENGTH_LONG).show();
+                        }
+                    }, 17, 00, true).show();
+                }
+            }, 2017, 11, 18).show();
         });
     }
 
