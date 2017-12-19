@@ -22,6 +22,7 @@ public class Step0Fragment extends Fragment {
     public void onAttach(Context context) {
         super.onAttach(context);
         // TODO cast context to listener
+        listener = (OnNextStep0Listener) context;
     }
 
     @Nullable
@@ -31,10 +32,13 @@ public class Step0Fragment extends Fragment {
 
         // TODO find TextView and set text
 
+
+
         // TODO find Button and set listener
-        Button nextButton;
+        Button nextButton = view.findViewById(R.id.nextButton);
         nextButton.setOnClickListener(v -> {
             // TODO call listener
+            listener.onNext();
         });
 
         return view;
@@ -44,11 +48,14 @@ public class Step0Fragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        textView = view.findViewById(R.id.textView);
+        textView.setText(STEP_0);
         // TODO setText(STEP_0)
     }
 
     public interface OnNextStep0Listener {
         // TODO add onNext() method
+        public void onNext();
     }
 
 }
